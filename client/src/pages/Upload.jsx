@@ -8,11 +8,18 @@ const Upload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setForm({
-      file: null,
-      usernames: "",
-    });
+    if (!form.file || !form.usernames) setError("Please fill all the fields");
+    else {
+      const allUsernames = form.usernames.split(",");
+      for (let i = 0; i < allUsernames.length; i++) {
+        allUsernames[i] = allUsernames[i].trim();
+      }
+      
+      setForm({
+        file: null,
+        usernames: "",
+      });
+    }
   };
 
   const ref = useRef();
