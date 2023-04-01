@@ -8,7 +8,7 @@ const Upload = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+
     setForm({
       file: null,
       usernames: "",
@@ -23,6 +23,9 @@ const Upload = () => {
       <br />
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-[15px]">
+          <label htmlFor="usernames">
+            Enter usernames<sup>*</sup>
+          </label>
           <input
             type="text"
             name="usernames"
